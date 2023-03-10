@@ -1,0 +1,15 @@
+.group__vector_disabled {
+  padding: 0;
+  min-width: 22px;
+  min-height: 19px;
+  background-image: url(../../../../images/element-vector-like-heart-disabled.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  background-color: transparent;
+}
+
+.group__vector_disabled:hover {
+  opacity: 0.5;
+  transition: opacity 1s linear;
+}

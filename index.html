@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="pages/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Место</title>
+</head>
+
+<body class="page">
+
+  <header class="header">
+    <img class="header__logo" src="images/header-logo.svg" alt="Логотип Место Россия">
+    <img class="header__line" src="images/header-line.svg" alt="разделительная линия">
+  </header>
+
+  <main class="main">
+
+    <section class="profile">
+      <img class="profile__image" src="images/profile-image.jpg" alt="фотография Кусто">
+      <div class="profile__info">
+        <div class="profile__title-space">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button"></button>
+        </div>
+        <p class="profile__job">Исследователь океана</p>
+      </div>
+      <button class="profile__add-button"></button>
+    </section>
+
+    <section class="group">
+      <article class="group__element">
+        <div class="group__rectangle">
+          <img class="group__mask" src="images/picture-karahaevsk.jpg" alt="фотография Карачаевск">
+          <p class="group__picture-name">Карачаевск
+            <button class="group__vector group__vector_disabled group__vector_active"></button>
+          </p>
+        </div>
+      </article>
+      <article class="group__element">
+        <div class="group__rectangle">
+          <img class="group__mask" src="images/picture-albrus.jpg" alt="фотография гора Эльбрус">
+          <p class="group__picture-name">Гора Эльбрус
+            <button class="group__vector group__vector_disabled group__vector_active"></button>
+          </p>
+        </div>
+      </article>
+      <article class="group__element">
+        <div class="group__rectangle">
+          <img class="group__mask" src="images/picture-dombai.jpg" alt="фотография Домбай">
+          <p class="group__picture-name">Домбай
+            <button class="group__vector group__vector_disabled group__vector_active"></button>
+          </p>
+        </div>
+      </article>
+      <article class="group__element">
+        <div class="group__rectangle">
+          <img class="group__mask" src="images/picture-albrus.jpg" alt="фотография гора Эльбрус">
+          <p class="group__picture-name">Гора Эльбрус
+            <button class="group__vector group__vector_disabled group__vector_active"></button>
+          </p>
+        </div>
+      </article>
+      <article class="group__element">
+        <div class="group__rectangle">
+          <img class="group__mask" src="images/picture-dombai.jpg" alt="фотография Домбай">
+          <p class="group__picture-name">Домбай
+            <button class="group__vector group__vector_disabled group__vector_active"></button>
+          </p>
+        </div>
+      </article>
+      <article class="group__element">
+        <div class="group__rectangle">
+          <img class="group__mask" src="images/picture-karahaevsk.jpg" alt="фотография Карачаевск">
+          <p class="group__picture-name">Карачаевск
+            <button class="group__vector group__vector_disabled group__vector_active"></button>
+          </p>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2023 Kristina Furman</p>
+  </footer>
+
+  <section class="popup">
+    <div class="popup__container">
+      <button class="popup__close"></button>
+      <form class="form" name="Profile" method="post">
+        <h2 class="form__title">Редактировать профиль</h2>
+        <fieldset class="form__input">
+          <input class="form__input-name" name="profile-name" type="text" placeholder="Жак-Ив Кусто">
+          <img class="form__line" src="images/form-line.svg" alt="разделительная линия">
+          <input class="form__input-job" name="profile-description" type="text" placeholder="Исследователь океана">
+          <img class="form__line" src="images/form-line.svg" alt="разделительная линия">
+        </fieldset>
+        <button class="form__button-save" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="./scripts/index.js">
+  </script>
+
+</body>
+
+</html>
