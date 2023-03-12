@@ -10,7 +10,6 @@
   background-size: 20px;
   background-repeat: no-repeat;
   border: none;
-  transition: 0.2s;
   cursor: pointer;
   transition: opacity 1s linear;
 }
