@@ -18,7 +18,6 @@
 @media screen and (min-width: 980px) {
   .group {
     max-width: 880px;
-    column-gap: 17px;
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -26,6 +25,5 @@
 @media screen and (min-width: 1280px) {
   .group {
     margin: 0 200px 0;
-    grid-template-columns: repeat(3, 1fr);
   }
 }

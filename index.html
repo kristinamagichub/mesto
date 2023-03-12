@@ -12,7 +12,6 @@
 
   <header class="header">
     <img class="header__logo" src="images/header-logo.svg" alt="Логотип Место Россия">
-    <img class="header__line" src="images/header-line.svg" alt="разделительная линия">
   </header>
 
   <main class="main">
@@ -22,60 +21,66 @@
       <div class="profile__info">
         <div class="profile__title-space">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button"></button>
+          <button class="profile__edit-button" type="button"></button>
         </div>
         <p class="profile__job">Исследователь океана</p>
       </div>
-      <button class="profile__add-button"></button>
+      <button class="profile__add-button" type="button"></button>
     </section>
 
     <section class="group">
       <article class="group__element">
         <div class="group__rectangle">
           <img class="group__mask" src="images/picture-karahaevsk.jpg" alt="фотография Карачаевск">
-          <p class="group__picture-name">Карачаевск
-            <button class="group__vector group__vector_disabled group__vector_active"></button>
-          </p>
+          <div class="group__description">
+            <h2 class="group__picture-name">Карачаевск</h2>
+            <button class="group__vector group__vector_disabled" type="button"></button>
+          </div>
         </div>
       </article>
       <article class="group__element">
         <div class="group__rectangle">
           <img class="group__mask" src="images/picture-albrus.jpg" alt="фотография гора Эльбрус">
-          <p class="group__picture-name">Гора Эльбрус
-            <button class="group__vector group__vector_disabled group__vector_active"></button>
-          </p>
+          <div class="group__description">
+            <h2 class="group__picture-name">Гора Эльбрус</h2>
+            <button class="group__vector group__vector_disabled" type="button"></button>
+          </div>
         </div>
       </article>
       <article class="group__element">
         <div class="group__rectangle">
           <img class="group__mask" src="images/picture-dombai.jpg" alt="фотография Домбай">
-          <p class="group__picture-name">Домбай
-            <button class="group__vector group__vector_disabled group__vector_active"></button>
-          </p>
+          <div class="group__description">
+            <h2 class="group__picture-name">Домбай</h2>
+            <button class="group__vector group__vector_disabled" type="button"></button>
+          </div>
         </div>
       </article>
       <article class="group__element">
         <div class="group__rectangle">
           <img class="group__mask" src="images/picture-albrus.jpg" alt="фотография гора Эльбрус">
-          <p class="group__picture-name">Гора Эльбрус
-            <button class="group__vector group__vector_disabled group__vector_active"></button>
-          </p>
+          <div class="group__description">
+            <h2 class="group__picture-name">Гора Эльбрус</h2>
+            <button class="group__vector group__vector_disabled" type="button"></button>
+          </div>
         </div>
       </article>
       <article class="group__element">
         <div class="group__rectangle">
           <img class="group__mask" src="images/picture-dombai.jpg" alt="фотография Домбай">
-          <p class="group__picture-name">Домбай
-            <button class="group__vector group__vector_disabled group__vector_active"></button>
-          </p>
+          <div class="group__description">
+            <h2 class="group__picture-name">Домбай</h2>
+            <button class="group__vector group__vector_disabled" type="button"></button>
+          </div>
         </div>
       </article>
       <article class="group__element">
         <div class="group__rectangle">
           <img class="group__mask" src="images/picture-karahaevsk.jpg" alt="фотография Карачаевск">
-          <p class="group__picture-name">Карачаевск
-            <button class="group__vector group__vector_disabled group__vector_active"></button>
-          </p>
+          <div class="group__description">
+            <h2 class="group__picture-name">Карачаевск</h2>
+            <button class="group__vector group__vector_disabled" type="button"></button>
+          </div>
         </div>
       </article>
     </section>
@@ -88,14 +93,13 @@
 
   <section class="popup">
     <div class="popup__container">
-      <button class="popup__close"></button>
+      <button class="popup__close" type="button"></button>
+      <h2 class="form__title">Редактировать профиль</h2>
       <form class="form" name="Profile" method="post">
-        <h2 class="form__title">Редактировать профиль</h2>
-        <fieldset class="form__input">
-          <input class="form__input-name" name="profile-name" type="text" placeholder="Жак-Ив Кусто">
-          <img class="form__line" src="images/form-line.svg" alt="разделительная линия">
-          <input class="form__input-job" name="profile-description" type="text" placeholder="Исследователь океана">
-          <img class="form__line" src="images/form-line.svg" alt="разделительная линия">
+        <fieldset class="form__info">
+          <input class="form__input form__input_type_name" name="profile-name" type="text" placeholder="Жак-Ив Кусто">
+          <input class="form__input form__input_type_job" name="profile-description" type="text"
+            placeholder="Исследователь океана">
         </fieldset>
         <button class="form__button-save" type="submit">Сохранить</button>
       </form>

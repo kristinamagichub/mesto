@@ -1,0 +1,14 @@
+.group__vector {
+  padding: 0;
+  background-image: url(../../../../images/element-vector-like-black-heart-active.svg);
+  background-size: 22px 19px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  background-color: transparent;
+}
+
+.group__vector:hover {
+  opacity: 0.5;
+  transition: opacity 1s linear;
+}

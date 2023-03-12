@@ -1,5 +1,11 @@
 .profile__title-space {
+  margin: 0 38px 0 65px;
   display: flex;
   flex-direction: row;
   border: none;
 }
+
+@media screen and (min-width: 980px) {
+  .profile__title-space {
+    margin: 0;
+  }
