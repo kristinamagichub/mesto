@@ -22,7 +22,6 @@
 @import url(../blocks/group/__picture-name/group__picture-name.css);
 @import url(../blocks/group/__rectangle/group__rectangle.css);
 @import url(../blocks/group/__vector/group__vector.css);
-@import url(../blocks/group/__vector/_disabled/group__vector_disabled.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);

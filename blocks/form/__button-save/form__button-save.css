@@ -4,6 +4,8 @@
   border: none;
   min-width: 238px;
   min-height: 46px;
+  font-size: 14px;
+  line-height: 17px;
   border-radius: 2px;
   background: #000;
   color: #FFF;
@@ -18,5 +20,7 @@
 @media screen and (min-width: 1280px) {
   .form__button-save {
     margin: 48px 36px 37px;
+    font-size: 18px;
+    line-height: 22px;
   }
 }

@@ -2,10 +2,11 @@
   padding: 0;
   width: 22px;
   height: 19px;
-  background-image: url(../../../../images/element-vector-like-black-heart-active.svg);
+  background-image: url(../../../images/element-vector-like-heart.svg);
   align-self: flex-end;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .group__vector:hover {
