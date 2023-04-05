@@ -20,7 +20,8 @@ const imagePopupContainerElement = imagePopupElement.querySelector('.image-popup
 const popupImageElement = imagePopupElement.querySelector('.image-popup__picture');
 const imagePopupCaption = imagePopupElement.querySelector('.image-popup__caption');
 
-const groupListsElement = document.querySelector('.group__lists');
+// const groupListsElement = document.querySelector('.group__lists');
+const groupListsElement = document.querySelector('.group');
 
 //массив начальных значений картинок 'из коробки'
 const initialCards = [

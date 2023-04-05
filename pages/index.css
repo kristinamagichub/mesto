@@ -16,8 +16,7 @@
 @import url(../blocks/profile/__job/profile__job.css);
 @import url(../blocks/profile/__info/profile__info.css);
 
-@import url(../blocks/group/__list/group__list.css);
-@import url(../blocks/group/__lists/group__lists.css);
+@import url(../blocks/group/group.css);
 @import url(../blocks/group/__mask/group__mask.css);
 @import url(../blocks/group/__description/group__description.css);
 @import url(../blocks/group/__picture-name/group__picture-name.css);
