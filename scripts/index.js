@@ -5,22 +5,22 @@ const cardsPopupElement = document.querySelector('.cards-popup');
 const imagePopupElement = document.querySelector('.image-popup');
 const cardsElement = document.querySelector('#theCard').content;
 
-const formElement = profilePopupElement.querySelector('.popup__container');
-const formElementAddCard = cardsPopupElement.querySelector('.popup__container');
+const profileForm = document.forms['Profile-edit form'];
+const cardForm = document.forms['Card-add form'];
+
 const popupEditOpenButtonElement = document.querySelector('.profile__edit-button');
 const popupAddOpenButtonElement = document.querySelector('.profile__add-button');
 const nameProfile = document.querySelector('.profile__name');
 const jobProfile = document.querySelector('.profile__job');
 const nameInput = document.querySelector('.form__input_type_name');
 const jobInput = document.querySelector('.form__input_type_job');
-const titleInput = formElementAddCard.querySelector('.form__input_type_title');
-const linkInput = formElementAddCard.querySelector('.form__input_type_link');
+const titleInput = cardForm.querySelector('.form__input_type_title');
+const linkInput = cardForm.querySelector('.form__input_type_link');
 
 const imagePopupContainerElement = imagePopupElement.querySelector('.image-popup__figure');
 const popupImageElement = imagePopupElement.querySelector('.image-popup__picture');
 const imagePopupCaption = imagePopupElement.querySelector('.image-popup__caption');
 
-// const groupListsElement = document.querySelector('.group__lists');
 const groupListsElement = document.querySelector('.group');
 
 //массив начальных значений картинок 'из коробки'
@@ -80,13 +80,13 @@ popupAddOpenButtonElement.addEventListener('click', () => {
 });
 
 //prevent отправки формы на сервер для редактирования профиля
-const handleFormSubmit = function (evt) {
+const handleProfileFormSubmit = function (evt) {
   evt.preventDefault();
   nameProfile.textContent = nameInput.value;
   jobProfile.textContent = jobInput.value;
   closePopup(profilePopupElement);
 }
-formElement.addEventListener('submit', handleFormSubmit);
+profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 //добавление разметки для картинок, имени, лайки, удаление
 function createCard(object) {
@@ -119,7 +119,7 @@ initialCards.forEach((item) => {
 });
 
 //добавление новой картинки вручную
-formElementAddCard.addEventListener('submit', (evt) => {
+cardForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const objectNameLink = { name: titleInput.value, link: linkInput.value };
   groupListsElement.prepend(createCard(objectNameLink));
