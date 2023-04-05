@@ -16,12 +16,15 @@
 @import url(../blocks/profile/__job/profile__job.css);
 @import url(../blocks/profile/__info/profile__info.css);
 
-@import url(../blocks/group/group.css);
+@import url(../blocks/group/__list/group__list.css);
+@import url(../blocks/group/__lists/group__lists.css);
 @import url(../blocks/group/__mask/group__mask.css);
 @import url(../blocks/group/__description/group__description.css);
 @import url(../blocks/group/__picture-name/group__picture-name.css);
 @import url(../blocks/group/__rectangle/group__rectangle.css);
 @import url(../blocks/group/__vector/group__vector.css);
+@import url(../blocks/group/__vector/_active/group__vector_active.css);
+@import url(../blocks/group/__trash/group__trash.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
@@ -36,3 +39,9 @@
 @import url(../blocks/form/__button-save/form__button-save.css);
 @import url(../blocks/form/__info/form__info.css);
 @import url(../blocks/form/__input/form__input.css);
+
+@import url(../blocks/image-popup/image-popup.css);
+@import url(../blocks/image-popup/__caption/image-popup__caption.css);
+@import url(../blocks/image-popup/__container/image-popup__container.css);
+@import url(../blocks/image-popup/__figure/image-popup__figure.css);
+@import url(../blocks/image-popup/__picture/image-popup__picture.css);

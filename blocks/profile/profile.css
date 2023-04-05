@@ -8,6 +8,7 @@
   .profile {
     flex-direction: row;
     max-width: 880px;
+    min-width: 880px;
     width: 100%;
   }
 }
