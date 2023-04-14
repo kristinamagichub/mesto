@@ -41,11 +41,14 @@
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="form" name="Profile-edit form" method="post">
+      <form class="form" name="Profile-edit-form" method="post" novalidate>
         <fieldset class="form__info">
-          <input class="form__input form__input_type_name" name="profile-name" type="text" placeholder="Введите имя">
-          <input class="form__input form__input_type_job" name="profile-description" type="text"
-            placeholder="Введите область деятельности">
+          <input class="form__input form__input_type_name" id="name" name="name" type="text" placeholder="Введите имя"
+            minlength="2" maxlength="40" required>
+          <span class="form__error form__error_type_name" id="name-error"></span>
+          <input class="form__input form__input_type_job" id="job" name="job" type="text"
+            placeholder="Введите область деятельности" minlength="2" maxlength="200" required>
+          <span class="form__error form__error_type_job" id="job-error"></span>
         </fieldset>
         <button class="form__button-save" type="submit">Сохранить</button>
       </form>
@@ -56,10 +59,14 @@
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="form" name="Card-add form" method="post">
+      <form class="form" name="Card-add-form" method="post" novalidate>
         <fieldset class="form__info">
-          <input class="form__input form__input_type_title" name="image-title" type="text" placeholder="Название">
-          <input class="form__input form__input_type_link" name="link" type="text" placeholder="Ссылка на картинку">
+          <input class="form__input form__input_type_title" id="title" name="title" type="text" placeholder="Название"
+            minlength="2" maxlength="30" required>
+          <span class="form__error form__error_type_title" id="title-error"></span>
+          <input class="form__input form__input_type_link" id="link" name="link" type="url"
+            placeholder="Ссылка на картинку" required>
+          <span class="form__error form__error_type_link" id="link-error"></span>
         </fieldset>
         <button class="form__button-save" type="submit">Создать</button>
       </form>
@@ -91,6 +98,7 @@
     </li>
   </template>
 
+  <script src="./scripts/validate.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 
