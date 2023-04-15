@@ -1,8 +1,8 @@
 const popupElements = document.querySelectorAll('.popup');
 const popupCloseButtonElements = document.querySelectorAll('.popup__close');
-const profilePopupElement = document.querySelector('.profile-popup');
-const cardsPopupElement = document.querySelector('.cards-popup');
-const imagePopupElement = document.querySelector('.image-popup');
+const profilePopupElement = document.querySelector('.popup_type_profile');
+const cardsPopupElement = document.querySelector('.popup_type_cards');
+const imagePopupElement = document.querySelector('.popup_type_image');
 const cardsElement = document.querySelector('#theCard').content;
 
 const profileForm = document.forms['Profile-edit-form'];
@@ -12,22 +12,22 @@ const popupEditOpenButtonElement = document.querySelector('.profile__edit-button
 const popupAddOpenButtonElement = document.querySelector('.profile__add-button');
 const nameProfile = document.querySelector('.profile__name');
 const jobProfile = document.querySelector('.profile__job');
-const nameInput = document.querySelector('.form__input_type_name');
-const jobInput = document.querySelector('.form__input_type_job');
-const titleInput = cardForm.querySelector('.form__input_type_title');
-const linkInput = cardForm.querySelector('.form__input_type_link');
+const nameInput = document.querySelector('.popup__input_type_name');
+const jobInput = document.querySelector('.popup__input_type_job');
+const titleInput = cardForm.querySelector('.popup__input_type_title');
+const linkInput = cardForm.querySelector('.popup__input_type_link');
 
-const imagePopupContainerElement = imagePopupElement.querySelector('.image-popup__figure');
-const popupImageElement = imagePopupElement.querySelector('.image-popup__picture');
-const imagePopupCaption = imagePopupElement.querySelector('.image-popup__caption');
+const imagePopupContainerElement = imagePopupElement.querySelector('.popup__figure');
+const popupImageElement = imagePopupElement.querySelector('.popup__picture');
+const imagePopupCaption = imagePopupElement.querySelector('.popup__caption');
 
 const groupListsElement = document.querySelector('.group');
 
 // переменные для удаления ошибок при открытии форм
-const buttonSaveFromProfileForm = profileForm.querySelector('.form__button-save');
-const buttonSaveFromCardForm = cardForm.querySelector('.form__button-save');
-const inputListFromProfileForm = profileForm.querySelector('.form__input');
-const inputListFromCardForm = cardForm.querySelector('.form__input');
+const buttonSaveFromProfileForm = profileForm.querySelector('.popup__button-save');
+const buttonSaveFromCardForm = cardForm.querySelector('.popup__button-save');
+const inputListFromProfileForm = profileForm.querySelector('.popup__input');
+const inputListFromCardForm = cardForm.querySelector('.popup__input');
 
 
 
@@ -135,7 +135,7 @@ cardForm.addEventListener('submit', (evt) => {
 
 //добавление разметки для картинок, имени, лайки, удаление
 function createCard(object) {
-  const groupListElement = cardsElement.querySelector('.group__list').cloneNode(true);
+  const groupListElement = cardsElement.querySelector('.group__item').cloneNode(true);
   const trashElement = groupListElement.querySelector('.group__trash');
   const imageElement = groupListElement.querySelector('.group__mask');
   const likeElement = groupListElement.querySelector('.group__vector');
@@ -145,7 +145,7 @@ function createCard(object) {
   imageElement.src = object.link;
 
   likeElement.addEventListener('click', () => likeElement.classList.toggle('group__vector_active'));
-  trashElement.addEventListener('click', (evt) => evt.target.closest('.group__list').remove());
+  trashElement.addEventListener('click', (evt) => evt.target.closest('.group__item').remove());
 
 
   //открытие popup картинки по клику на нее

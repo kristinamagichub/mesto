@@ -1,4 +1,4 @@
-.form__input {
+.popup__input {
   margin: 0;
   padding: 0;
   border: none;
@@ -12,6 +12,6 @@
   width: 100%;
 }
 
-.form__input:first-child {
+.popup__input:first-child {
   margin-top: 0;
 }

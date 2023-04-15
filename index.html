@@ -37,54 +37,54 @@
     <p class="footer__copyright">&copy; 2023 Kristina Furman</p>
   </footer>
 
-  <section class="popup profile-popup">
+  <section class="popup popup_type_profile">
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="form" name="Profile-edit-form" method="post" novalidate>
-        <fieldset class="form__info">
-          <input class="form__input form__input_type_name" id="name" name="name" type="text" placeholder="Введите имя"
+      <form class="popup__form" name="Profile-edit-form" method="post" novalidate>
+        <fieldset class="popup__info">
+          <input class="popup__input popup__input_type_name" id="name" name="name" type="text" placeholder="Введите имя"
             minlength="2" maxlength="40" required>
-          <span class="form__error form__error_type_name" id="name-error"></span>
-          <input class="form__input form__input_type_job" id="job" name="job" type="text"
+          <span class="popup__error popup__error_type_name" id="name-error"></span>
+          <input class="popup__input popup__input_type_job" id="job" name="job" type="text"
             placeholder="Введите область деятельности" minlength="2" maxlength="200" required>
-          <span class="form__error form__error_type_job" id="job-error"></span>
+          <span class="popup__error popup__error_type_job" id="job-error"></span>
         </fieldset>
-        <button class="form__button-save" type="submit">Сохранить</button>
+        <button class="popup__button-save" type="submit">Сохранить</button>
       </form>
     </div>
   </section>
 
-  <section class="popup cards-popup">
+  <section class="popup popup_type_cards">
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="form" name="Card-add-form" method="post" novalidate>
-        <fieldset class="form__info">
-          <input class="form__input form__input_type_title" id="title" name="title" type="text" placeholder="Название"
+      <form class="popup__form" name="Card-add-form" method="post" novalidate>
+        <fieldset class="popup__info">
+          <input class="popup__input popup__input_type_title" id="title" name="title" type="text" placeholder="Название"
             minlength="2" maxlength="30" required>
-          <span class="form__error form__error_type_title" id="title-error"></span>
-          <input class="form__input form__input_type_link" id="link" name="link" type="url"
+          <span class="popup__error popup__error_type_title" id="title-error"></span>
+          <input class="popup__input popup__input_type_link" id="link" name="link" type="url"
             placeholder="Ссылка на картинку" required>
-          <span class="form__error form__error_type_link" id="link-error"></span>
+          <span class="popup__error popup__error_type_link" id="link-error"></span>
         </fieldset>
-        <button class="form__button-save" type="submit">Создать</button>
+        <button class="popup__button-save" type="submit">Создать</button>
       </form>
     </div>
   </section>
 
-  <section class="popup image-popup">
-    <div class="image-popup__container">
+  <section class="popup popup_type_image">
+    <div class="popup__frame">
       <button class="popup__close" type="button"></button>
-      <figure class="image-popup__figure">
-        <img class="image-popup__picture" src="#" alt="#">
-        <figcaption class="image-popup__caption"></figcaption>
+      <figure class="popup__figure">
+        <img class="popup__picture" src="#" alt="#">
+        <figcaption class="popup__caption"></figcaption>
       </figure>
     </div>
   </section>
 
   <template id="theCard">
-    <li class="group__list">
+    <li class="group__item">
       <article class="group__element">
         <div class="group__rectangle">
           <button class="group__trash" type="button"></button>

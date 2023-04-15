@@ -1,12 +1,12 @@
 //для валидации
 const validationConfig = {
   allforms: document.forms,
-  inputSelector: '.form__input',
-  submitButtonSelector: '.form__button-save',
-  inactiveButtonClass: 'form__button-save_disable',
-  inputErrorClass: 'form__input_invalid',
-  errorSelector: '.form__error_type_',
-  errorClass: 'form__error_active',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button-save',
+  inactiveButtonClass: 'popup__button-save_disable',
+  inputErrorClass: 'popup__input_invalid',
+  errorSelector: '.popup__error_type_',
+  errorClass: 'popup__error_active',
 };
 
 enableValidation(validationConfig);
