@@ -43,9 +43,9 @@
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form" name="Profile-edit-form" method="post" novalidate>
         <fieldset class="popup__info">
-          <input class="popup__input popup__input_type_name" id="name" name="name" type="text" placeholder="Введите имя"
-            minlength="2" maxlength="40" required>
-          <span class="popup__error popup__error_type_name" id="name-error"></span>
+          <input class="popup__input popup__input_type_name" id="username" name="username" type="text"
+            placeholder="Введите имя" minlength="2" maxlength="40" required>
+          <span class="popup__error popup__error_type_username" id="name-error"></span>
           <input class="popup__input popup__input_type_job" id="job" name="job" type="text"
             placeholder="Введите область деятельности" minlength="2" maxlength="200" required>
           <span class="popup__error popup__error_type_job" id="job-error"></span>
@@ -91,15 +91,16 @@
           <img class="group__mask" src="#" alt="#">
           <div class="group__description">
             <h2 class="group__picture-name"></h2>
-            <button class="group__vector" type="button"></button>
+            <button class="group__like" type="button"></button>
           </div>
         </div>
       </article>
     </li>
   </template>
 
-  <script src="./scripts/validate.js"></script>
-  <script src="./scripts/index.js"></script>
+  <script type="module" src="./scripts/index.js"></script>
+
+
 </body>
 
 </html>

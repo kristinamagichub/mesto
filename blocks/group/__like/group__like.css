@@ -1,4 +1,4 @@
-.group__vector {
+.group__like {
   padding: 0;
   width: 22px;
   height: 19px;
@@ -9,7 +9,7 @@
   cursor: pointer;
 }
 
-.group__vector:hover {
+.group__like:hover {
   opacity: 0.5;
   transition: opacity 1s linear;
 }

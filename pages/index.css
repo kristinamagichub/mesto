@@ -21,8 +21,8 @@
 @import url(../blocks/group/__description/group__description.css);
 @import url(../blocks/group/__picture-name/group__picture-name.css);
 @import url(../blocks/group/__rectangle/group__rectangle.css);
-@import url(../blocks/group/__vector/group__vector.css);
-@import url(../blocks/group/__vector/_active/group__vector_active.css);
+@import url(../blocks/group/__like/group__like.css);
+@import url(../blocks/group/__like/_active/group__like_active.css);
 @import url(../blocks/group/__trash/group__trash.css);
 
 @import url(../blocks/footer/footer.css);

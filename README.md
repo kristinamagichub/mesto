@@ -62,4 +62,6 @@ Cсылки на макеты в Figma: [1](https://www.figma.com/file/2cn9N9jSk
 [check-list 1](https://code.s3.yandex.net/web-developer/checklists-pdf/new-program/checklist-4.pdf) |
 [check-list 2](https://code.s3.yandex.net/web-developer/checklists-pdf/new-program/checklist-5.pdf) |
 [check-list 3](https://code.s3.yandex.net/web-developer/checklists-pdf/new-program/checklist-6.pdf) |
+[check-list 4](https://code.s3.yandex.net/web-developer/checklists-pdf/new-program/checklist-7.pdf) |
+
 ___

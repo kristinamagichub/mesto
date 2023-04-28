@@ -1,10 +1,14 @@
+import initialCards from "./constants.js";
+import Card from "./card.js";
+import FormValidator from "./FormValidator.js";
+
 const popupElements = document.querySelectorAll('.popup');
 const popupCloseButtonElements = document.querySelectorAll('.popup__close');
 const profilePopupElement = document.querySelector('.popup_type_profile');
 const cardsPopupElement = document.querySelector('.popup_type_cards');
 const imagePopupElement = document.querySelector('.popup_type_image');
-const cardsElement = document.querySelector('#theCard').content;
 
+const selectorTemplate = '#theCard';
 const profileForm = document.forms['Profile-edit-form'];
 const cardForm = document.forms['Card-add-form'];
 
@@ -23,41 +27,16 @@ const imagePopupCaption = imagePopupElement.querySelector('.popup__caption');
 
 const groupListsElement = document.querySelector('.group');
 
-// переменные для удаления ошибок при открытии форм
-const buttonSaveFromProfileForm = profileForm.querySelector('.popup__button-save');
-const buttonSaveFromCardForm = cardForm.querySelector('.popup__button-save');
-const inputListFromProfileForm = profileForm.querySelector('.popup__input');
-const inputListFromCardForm = cardForm.querySelector('.popup__input');
+//для валидации
+const validationConfig = {
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button-save',
+  inactiveButtonClass: 'popup__button-save_disable',
+  inputErrorClass: 'popup__input_invalid',
+  errorSelector: '.popup__error_type_',
+  errorClass: 'popup__error_active',
+};
 
-
-
-//массив начальных значений картинок 'из коробки'
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
 
 //ф открытия popup
 const openPopup = function (popup) {
@@ -98,9 +77,44 @@ const closePopupByClickOnOverlay = function (event) {
 popupElements.forEach(element => element.addEventListener('click', closePopupByClickOnOverlay));
 
 
+//ф открытия попап для картинки
+function openImagePopup(object) {
+  popupImageElement.alt = object.name;
+  popupImageElement.src = object.link;
+  imagePopupCaption.textContent = object.name;
+  openPopup(imagePopupElement);
+}
+
+//добавление разметки для картинок, имени, лайки, удаление
+function createNewCard(item) {
+  const card = new Card(item, selectorTemplate, openImagePopup);
+  const cardElement = card.createCard();
+  return cardElement;
+}
+
+//ф добавления карточки в нужный контейнер
+function addCard(container, card) {
+  container.prepend(card);
+}
+
+//загрузка картинок из массива initialCards при открытии страницы
+initialCards.forEach((item) => {
+  addCard(groupListsElement, createNewCard(item))
+});
+
+
+//создание для каждой проверяемой формы экземпляр класса FormValidator и запуск валидации
+const profileFormValidator = new FormValidator(validationConfig, profileForm);
+profileFormValidator.enableValidation();
+
+const cardFormValidator = new FormValidator(validationConfig, cardForm);
+cardFormValidator.enableValidation();
+
+
 //открытие popup редактирования профиля
 popupEditOpenButtonElement.addEventListener('click', () => {
-  resetErrorForOpenedForm(profileForm, validationConfig);
+  profileForm.reset();
+  profileFormValidator.resetErrorForOpenedForm();
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
   openPopup(profilePopupElement)
@@ -109,7 +123,7 @@ popupEditOpenButtonElement.addEventListener('click', () => {
 //открытие popup для добавления и редактирования картинок
 popupAddOpenButtonElement.addEventListener('click', () => {
   cardForm.reset();
-  resetErrorForOpenedForm(cardForm, validationConfig);
+  cardFormValidator.resetErrorForOpenedForm();
   openPopup(cardsPopupElement);
 });
 
@@ -127,40 +141,7 @@ profileForm.addEventListener('submit', handleProfileFormSubmit);
 cardForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const objectNameLink = { name: titleInput.value, link: linkInput.value };
-  groupListsElement.prepend(createCard(objectNameLink));
+  addCard(groupListsElement, createNewCard(objectNameLink));
   closePopup(cardsPopupElement);
   evt.target.reset(); //очистка строки ввода
-});
-
-
-//добавление разметки для картинок, имени, лайки, удаление
-function createCard(object) {
-  const groupListElement = cardsElement.querySelector('.group__item').cloneNode(true);
-  const trashElement = groupListElement.querySelector('.group__trash');
-  const imageElement = groupListElement.querySelector('.group__mask');
-  const likeElement = groupListElement.querySelector('.group__vector');
-
-  groupListElement.querySelector('.group__picture-name').textContent = object.name;
-  imageElement.alt = object.name;
-  imageElement.src = object.link;
-
-  likeElement.addEventListener('click', () => likeElement.classList.toggle('group__vector_active'));
-  trashElement.addEventListener('click', (evt) => evt.target.closest('.group__item').remove());
-
-
-  //открытие popup картинки по клику на нее
-  imageElement.addEventListener('click', () => {
-    popupImageElement.alt = object.name;
-    popupImageElement.src = object.link;
-    imagePopupCaption.textContent = object.name;
-    openPopup(imagePopupElement);
-  });
-  return groupListElement;
-}
-
-
-//загрузка картинок из массива initialCards при открытии страницы
-initialCards.forEach((item) => {
-  const card = createCard(item);
-  groupListsElement.append(card);
 });
