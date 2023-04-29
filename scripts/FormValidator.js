@@ -65,8 +65,8 @@ export default
     this._setEventListener();
   }
 
-  //ф убирающая ошибку при открытии формы
-  resetErrorForOpenedForm() {
+  //ф сбрасывающая ошибки и деактивирующая кнопки
+  resetValidation() {
     this._inputList.forEach(input => {
       const errorTextElement = this._form.querySelector(`${this._errorSelector}${input.name}`)
       if (!input.validity.valid) {

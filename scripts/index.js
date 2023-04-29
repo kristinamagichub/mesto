@@ -1,5 +1,5 @@
 import initialCards from "./constants.js";
-import Card from "./card.js";
+import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 
 const popupElements = document.querySelectorAll('.popup');
@@ -113,8 +113,7 @@ cardFormValidator.enableValidation();
 
 //открытие popup редактирования профиля
 popupEditOpenButtonElement.addEventListener('click', () => {
-  profileForm.reset();
-  profileFormValidator.resetErrorForOpenedForm();
+  profileFormValidator.resetValidation();
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
   openPopup(profilePopupElement)
@@ -123,7 +122,7 @@ popupEditOpenButtonElement.addEventListener('click', () => {
 //открытие popup для добавления и редактирования картинок
 popupAddOpenButtonElement.addEventListener('click', () => {
   cardForm.reset();
-  cardFormValidator.resetErrorForOpenedForm();
+  cardFormValidator.resetValidation();
   openPopup(cardsPopupElement);
 });
 

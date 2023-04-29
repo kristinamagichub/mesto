@@ -13,21 +13,21 @@ export default
     this._picTitle = this._cloneElement.querySelector('.group__picture-name');
   }
 
-  _pushedLike = () => {
+  _toggleLike = () => {
     this._likeElement.classList.toggle('group__like_active');
   }
-  _pushedDelete = () => {
+  _handleTrashSignClick = () => {
     this._cloneElement.remove();
     this._cloneElement = null;
   }
-  _pushedImage = () => {
+  _handleImageClick = () => {
     this._openImagePopup(this._object)
   }
 
   _setEventListener() {
-    this._likeElement.addEventListener('click', this._pushedLike);
-    this._trashElement.addEventListener('click', this._pushedDelete);
-    this._imageElement.addEventListener('click', this._pushedImage);
+    this._likeElement.addEventListener('click', this._toggleLike);
+    this._trashElement.addEventListener('click', this._handleTrashSignClick);
+    this._imageElement.addEventListener('click', this._handleImageClick);
   }
   createCard() {
     this._imageElement.src = this._link;
