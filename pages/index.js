@@ -86,6 +86,3 @@ popupAddOpenButtonElement.addEventListener('click', () => {
 
 
 
-
-//ф-колбэк, через которую класс section получает разметку и вставляет её в контейнер.
-
