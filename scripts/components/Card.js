@@ -1,9 +1,9 @@
 export default
   class Card {
-  constructor(object, selectorTemplate, openImagePopup) {
-    this._object = object;
-    this._link = object.link;
-    this._name = object.name;
+  constructor(imageData, selectorTemplate, openImagePopup) {
+    this._imageData = imageData;
+    this._link = imageData.link;
+    this._name = imageData.title;
     this._selectorTemplate = selectorTemplate;
     this._openImagePopup = openImagePopup;
     this._cloneElement = document.querySelector(this._selectorTemplate).content.querySelector('.group__item').cloneNode(true);
@@ -20,8 +20,9 @@ export default
     this._cloneElement.remove();
     this._cloneElement = null;
   }
+  //ф открываeт попап с картинкой при клике на нее
   _handleImageClick = () => {
-    this._openImagePopup(this._object)
+    this._openImagePopup(this._imageData)
   }
 
   _setEventListener() {
@@ -29,9 +30,10 @@ export default
     this._trashElement.addEventListener('click', this._handleTrashSignClick);
     this._imageElement.addEventListener('click', this._handleImageClick);
   }
+
   createCard() {
     this._imageElement.src = this._link;
-    this._imageElement.alt = this._name;
+    this._imageElement.alt = `Фотография ${this._name}`;
     this._picTitle.textContent = this._name;
     this._setEventListener();
     return this._cloneElement;

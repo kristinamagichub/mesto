@@ -16,13 +16,11 @@ export default
   _showInputError(errorTextElement, input) {
     input.classList.add(this._inputErrorClass);
     errorTextElement.textContent = input.validationMessage;
-    //errorTextElement.classList.add(errorClass);
   }
   //ф скрывающая ошибку
   _hideInputError(errorTextElement, input) {
     input.classList.remove(this._inputErrorClass);
     errorTextElement.textContent = '';
-    //errorTextElement.classList.remove(errorClass);
   }
 
   _checkInputValidity(input) {
