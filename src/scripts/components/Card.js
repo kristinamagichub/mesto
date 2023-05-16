@@ -1,3 +1,4 @@
+//класс создаёт карточку с текстом и ссылкой на изображение
 export default
   class Card {
   constructor(imageData, selectorTemplate, openImagePopup) {
