@@ -47,7 +47,7 @@ ___
 * Nested File Structure
 * BEM Methodology
 * JavaScript
-
+* Webpack
 
 
 ___
