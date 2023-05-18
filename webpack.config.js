@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // подключите плагин
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 module.exports = {
@@ -13,16 +13,31 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
+    new MiniCssExtractPlugin()
   ],
   module: {
     rules: [
       {
-        test: /\.(svg)$/i,
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        }
+      },
+      {
+        test: /\.css$/i,
         use: [
+          MiniCssExtractPlugin.loader,
           {
-            loader: 'file-loader',
+            loader: 'css-loader',
+            // добавьте объект options
+            options: { importLoaders: 1 }
           },
-        ],
+          'postcss-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+        type: "asset/resource",
       },
     ],
   },

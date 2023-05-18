@@ -19,6 +19,7 @@ import {
   cardForm
 } from "../scripts/utils/constants.js";
 
+import "../pages/index.css"
 
 //создание экземпляра класса UserInfo
 const userInfo = new UserInfo(configInfo);
