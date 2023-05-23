@@ -36,6 +36,6 @@ export default
   //метод отвечает за закрытие popup, /по esc
   close() {
     this._popup.classList.remove('popup_opened');
-    document.removeEventListener('keydown', this._handleEscClose);
+    document.removeEventListener('keydown', this._handleEscClose);  //обработчик удаляется при закрытии попапа
   }
 }

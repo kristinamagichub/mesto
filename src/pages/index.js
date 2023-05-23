@@ -32,31 +32,39 @@ popupImage.setEventListeners();
 
 //создание экземпляра класса Section с объектом начальных картинок
 const section = new Section({
-  items: initialCards,
   //Свойство items — массив картинок, которые нужно добавить на страницу при инициализации класса
+  items: initialCards,
+  //Свойство renderer — функция, которая отвечает за создание и отрисовку данных на странице (отрисовкy каждого отдельного элемента)
   renderer: (element) => {
-    const card = new Card(element, selectorTemplate, popupImage.open);
-    return card.createCard();
-    //Свойство renderer — функция, которая отвечает за создание и отрисовку данных на странице (отрисовкy каждого отдельного элемента)
-  }
+    section.addItem(createNewCard(element));
+  },
 }, groupListsElementSelector);
-//добавление картинок из массива при загрузке страницы
-section.addCardFromArray();
+
+
+//Код создания карточки вынесен в функцию. Функция создает экземпляр класса и возвращает создание карточки card.createCard()
+const createNewCard = (element) => {
+  const card = new Card(element, selectorTemplate, popupImage.open);
+  return card.createCard();
+};
+//добавление метода и вызов его после создания экземпляра класса
+section.renderItems();
 
 
 // экземпляр класса PopupWithForm для формы редактирования профиля, обработка формы submit
-const popupProfile = new PopupWithForm(popupProfileSelector, (evt) => {
+const popupProfile = new PopupWithForm(popupProfileSelector, inputsValue => {
   evt.preventDefault();
-  userInfo.setUserInfo(popupProfile.getInputsValue());
+  //Данные формы передаются в колбэк как параметр из класса PopupWithForm и можно сразу использовать передаваемые данные
+  userInfo.setUserInfo(inputsValue());
   popupProfile.close();
 })
 popupProfile.setEventListeners();
 
 
 //экземпляр класса PopupWithForm для формы добавления новой картинки вручную, обработка формы submit
-const popupAddCard = new PopupWithForm(popupAddCardSelector, (evt) => {
+const popupAddCard = new PopupWithForm(popupAddCardSelector, inputsValue => {
   evt.preventDefault();
-  section.addItem(section.renderer(popupAddCard.getInputsValue()));
+  //Данные формы передаются в колбэк как параметр из класса PopupWithForm и можно сразу использовать передаваемые данные
+  section.addItem(section.renderer(inputsValue()));
   popupAddCard.close();
 })
 popupAddCard.setEventListeners();
@@ -82,8 +90,3 @@ popupAddOpenButtonElement.addEventListener('click', () => {
   cardFormValidator.resetValidation();
   popupAddCard.open();
 });
-
-
-
-
-

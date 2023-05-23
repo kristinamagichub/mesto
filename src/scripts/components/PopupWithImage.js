@@ -5,6 +5,7 @@ import Popup from "./Popup.js";
 export default
   class PopupWithImage extends Popup {
   constructor(popupSelector) {
+    //Элементы попапа находите в конструкторе
     super(popupSelector);
     this._popupImage = this._popup.querySelector('.popup__picture');
     this._imagePopupCaption = this._popup.querySelector('.popup__caption')

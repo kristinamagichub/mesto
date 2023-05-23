@@ -5,16 +5,19 @@ export default
     //2й параметр — селектор контейнера, в который добавляются созданные элементы
     this._container = document.querySelector(containerSelector);
     this._initialCard = items;
-    this.renderer = renderer;
-    //публичный метод, который отвечает за отрисовку всех элементов. (публичное свойство для возможности использования его в колбеке формы для сабмита)
+    this._renderer = renderer;   // метод, который отвечает за отрисовку всех элементов. (приватное свойство для возможности использования его в колбеке формы для сабмита)
   }
 
+  //содержит приватный метод, который отвечает за отрисовку всех элементов
+  //отрисовка каждого отдельного элемента осуществляется функцией renderer
   //создание карточек из массива
-  addCardFromArray() {
+  renderItems() {
     this._initialCard.forEach(element => {
-      this.addItem(this.renderer(element))
+      //
+      this._renderer(element);
     })
   }
+
   //публичный метод addItem, который принимает DOM-элемент и добавляет его в контейнер (ф добавления карточки в нужный контейнер)
   addItem(elementDom) {
     this._container.prepend(elementDom);
