@@ -40,21 +40,21 @@ const section = new Section({
   },
 }, groupListsElementSelector);
 
-
 //Код создания карточки вынесен в функцию. Функция создает экземпляр класса и возвращает создание карточки card.createCard()
+//функция которая создает карточку (new Card) и возвращает ее разметку.
 const createNewCard = (element) => {
   const card = new Card(element, selectorTemplate, popupImage.open);
   return card.createCard();
 };
-//добавление метода и вызов его после создания экземпляра класса
+//добавление метода(который отвечает за отрисовку всех элементов) и вызов его после создания экземпляра класса
 section.renderItems();
 
 
 // экземпляр класса PopupWithForm для формы редактирования профиля, обработка формы submit
 const popupProfile = new PopupWithForm(popupProfileSelector, inputsValue => {
-  evt.preventDefault();
+
   //Данные формы передаются в колбэк как параметр из класса PopupWithForm и можно сразу использовать передаваемые данные
-  userInfo.setUserInfo(inputsValue());
+  userInfo.setUserInfo(inputsValue);
   popupProfile.close();
 })
 popupProfile.setEventListeners();
@@ -62,9 +62,9 @@ popupProfile.setEventListeners();
 
 //экземпляр класса PopupWithForm для формы добавления новой картинки вручную, обработка формы submit
 const popupAddCard = new PopupWithForm(popupAddCardSelector, inputsValue => {
-  evt.preventDefault();
+
   //Данные формы передаются в колбэк как параметр из класса PopupWithForm и можно сразу использовать передаваемые данные
-  section.addItem(section.renderer(inputsValue()));
+  section.addItem(createNewCard(inputsValue));
   popupAddCard.close();
 })
 popupAddCard.setEventListeners();
