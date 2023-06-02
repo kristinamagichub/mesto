@@ -4,6 +4,7 @@ export default
   constructor(popupSelector) {
     this._popup = document.querySelector(popupSelector);
     this._popupCloseButton = this._popup.querySelector('.popup__close');
+    this._form = this._popup.querySelector('.popup__form');
   }
 
   //закрытие popup при нажатии на escape

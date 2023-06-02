@@ -39,13 +39,20 @@ const popupAddCardSelector = '.popup_type_cards';
 const popupImageSelector = '.popup_type_image';
 const groupListsElementSelector = '.group';
 
+const popupAvatarSelector = ".popup_type_editAvatar"
+const popupDeleteSelector = ".popup_type_delete"
+
 
 //переменные для класса UserInfo
 const configInfo = {
   nameProfileSelector: '.profile__name',
-  jobProfileSelector: '.profile__job'
+  jobProfileSelector: '.profile__job',
+  profileAvatar: '.profile__image'
 }
 
+
+//пустой объект для валидации форм
+const formsValidator = {};
 
 //для валидации
 const validationConfig = {
@@ -57,9 +64,6 @@ const validationConfig = {
   errorClass: 'popup__error_active',
 };
 
-const profileForm = document.forms['Profile-edit-form'];
-const cardForm = document.forms['Card-add-form'];
-
 
 export {
   initialCards,
@@ -70,8 +74,9 @@ export {
   popupAddCardSelector,
   popupImageSelector,
   groupListsElementSelector,
+  popupAvatarSelector,
+  popupDeleteSelector,
   configInfo,
-  validationConfig,
-  profileForm,
-  cardForm
+  formsValidator,
+  validationConfig
 };

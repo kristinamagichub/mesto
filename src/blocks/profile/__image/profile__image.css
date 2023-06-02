@@ -1,5 +1,7 @@
 .profile__image {
   margin: 42px auto 25px;
+  min-width: 120px;
+  min-height: 120px;
   max-width: 120px;
   max-height: 120px;
   align-self: center;
