@@ -8,6 +8,7 @@ export default
     this._myId = imageData.myid;
     this._ownerId = imageData.owner._id;
     this._cardId = imageData._id;
+    this._isLiked = false;
 
     this._likes = imageData.likes;
     this._likesLength = imageData.likes.length;
@@ -25,8 +26,10 @@ export default
     this._counter = this._cloneElement.querySelector('.group__likes-counter');
   }
 
+
+
   _toggleLike = () => {
-    this._changeLike(this._likeElement, this._cardId);
+    this._changeLike(this._isLiked, this._cardId);
   }
 
   _handleTrashSignClick = () => {
@@ -56,7 +59,7 @@ export default
   _handleLikeClickStatus() {
     this._likes.forEach(item => {
       if (item._id === this._myId) {
-        this._likeElement.classList.add('group__like_active')
+        this._likeElement.classList.add('group__like_active');
         return
       }
     })
@@ -68,6 +71,7 @@ export default
   //метод получает массив лайков чтобы менять счетчик
   toggleLikesNumberCounter(likes) {
     this._likeElement.classList.toggle('group__like_active');
+    this._isLiked = !this._isLiked;
     this._counter.textContent = likes.length;
   }
 
@@ -89,5 +93,3 @@ export default
     return this._cloneElement;
   }
 }
-
-

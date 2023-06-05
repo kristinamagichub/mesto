@@ -20,6 +20,13 @@ export default
     this._nameProfile.textContent = username;
     this._jobProfile.textContent = job;
   }
+
+
+  setUserId(id) {
+    this._id = id;
+  }
+
+  getUserId() {
+    return this._id;
+  }
 }
-
-

@@ -5,7 +5,7 @@ import PopupWithImage from "../scripts/components/PopupWithImage.js";
 import PopupWithForm from "../scripts/components/PopupWithForm.js";
 import Card from "../scripts/components/Card.js";
 import PopupWithDeleteForm from "../scripts/components/PopupWithDeleteForm.js";
-import Api from "../scripts/components/Api.js";
+import Api from "../scripts/components/api.js";
 
 
 
@@ -26,8 +26,6 @@ import {
 
 import "../pages/index.css"
 
-
-
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-66',
   headers: {
@@ -35,8 +33,6 @@ const api = new Api({
     'Content-Type': 'application/json'
   }
 });
-
-
 
 //создание экземпляра класса UserInfo
 const userInfo = new UserInfo(configInfo);
@@ -62,8 +58,8 @@ popupDeleteCard.setEventListeners();
 //Код создания карточки вынесен в функцию. Функция создает экземпляр класса и возвращает создание карточки card.createCard()
 //функция которая создает карточку (new Card) и возвращает ее разметку.
 const createNewCard = (element) => {
-  const card = new Card(element, selectorTemplate, popupImage.open, popupDeleteCard.open, (likeElement, cardId) => {
-    if (likeElement.classList.contains('group__like_active')) {
+  const card = new Card(element, selectorTemplate, popupImage.open, popupDeleteCard.open, (isLiked, cardId) => {
+    if (isLiked) {
       api.deleteLike(cardId)
         .then(res => {
           console.log(res)
@@ -101,18 +97,16 @@ const popupProfile = new PopupWithForm(popupProfileSelector, inputsValue => {
     })
     .catch((error => console.error(`Ошибка при редактировании профиля ${error}`)))
     .finally(() => popupProfile.setDefaultText())
-  //userInfo.setUserInfo(inputsValue);
 })
 popupProfile.setEventListeners();
 
 
-
 //экземпляр класса PopupWithForm для формы добавления новой картинки вручную, обработка формы submit
 const popupAddCard = new PopupWithForm(popupAddCardSelector, inputsValue => {
-  //Данные формы передаются в колбэк как параметр из класса PopupWithForm и можно сразу использовать передаваемые данные
-  Promise.all([api.getInfo(), api.addCard(inputsValue)])
-    .then(([dataUser, dataCard]) => {
-      dataCard.myid = dataUser._id;
+  api.addCard(inputsValue)
+    .then(dataCard => {
+      console.log(userInfo.getUserId())
+      dataCard.myid = userInfo.getUserId()
       section.addItemPrepend(createNewCard(dataCard))
       popupAddCard.close();
     })
@@ -120,6 +114,7 @@ const popupAddCard = new PopupWithForm(popupAddCardSelector, inputsValue => {
     .finally(() => popupAddCard.setDefaultText())
 });
 popupAddCard.setEventListeners();
+
 
 
 
@@ -171,11 +166,12 @@ document.querySelector(".profile__avatar-overlay").addEventListener("click", () 
 })
 
 
-
 Promise.all([api.getInfo(), api.getCards()])//получает на вход масив из асихронных методов, он выполняет их параллельно
   .then(([dataUser, dataCard]) => {
+
     dataCard.forEach(element => element.myid = dataUser._id)
     userInfo.setUserInfo({ username: dataUser.name, job: dataUser.about, avatar: dataUser.avatar })
+    userInfo.setUserId(dataUser._id);
     section.renderItems(dataCard);
   })
   .catch((error) => console.error(`Ошибка при создании начальных данных страницы ${error}`))
